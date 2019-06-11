@@ -207,7 +207,7 @@ glGenTextures(1, &_terrain_tId3);
   glBindTexture(GL_TEXTURE_2D, 0);
 
   assimpInit4(models);
-  assimpInit1("obj/tree/Tree.obj");
+  assimpInit1("obj/tree/Broad Leaf Straight Trunk.obj");
   unObjet();
 
    
@@ -336,27 +336,6 @@ void drawNature1(void) {
   glBindTexture(GL_TEXTURE_1D, _terrain_tId);
   gl4dgDraw(_landscape);
 
-  //2ème montagne
-  gl4duBindMatrix("modelViewMatrix");
-  gl4duLoadIdentityf();
-  gl4duLookAtf(_cam.x, landscape_y + 2.0, _cam.z, 
-         _cam.x - sin(_cam.theta), landscape_y + 2.0 - (ym - (_windowHeight >> 1)) / (GLfloat)_windowHeight, _cam.z - cos(_cam.theta), 
-         0.0, 1.0,0.0);
-  glBindTexture(GL_TEXTURE_1D, 0);
-  glActiveTexture(GL_TEXTURE0);
- glUseProgram(_landscape_pId3);
-  mat = gl4duGetMatrixData();
-  MMAT4XVEC4(lumpos, mat, temp);
-  gl4duScalef(700, 700, 700);
-  gl4duRotatef(180,0,0,0);
-  gl4duTranslatef(0,0.3,-0.8);
-  gl4duSendMatrices();
-  glUniform4fv(glGetUniformLocation(_landscape_pId, "lumpos"), 1, lumpos);
-  glUniform1i(glGetUniformLocation(_landscape_pId, "degrade"), 0);
-  glUniform1i(glGetUniformLocation(_landscape_pId, "fog"), _fog);
-  glBindTexture(GL_TEXTURE_1D, _terrain_tId3);
-  gl4dgDraw(_landscape3);
-
 //Placement des objets 
 
   for (int i = 0; i < 35; i++){
@@ -395,10 +374,10 @@ void drawNature1(void) {
         0.0, 1.0,0.0);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _pId);
-    gl4duTranslatef(pose[i]+ 18, 8, pose[i+1] - 28);
+    gl4duTranslatef(pose[i]+ 18, 5, pose[i+1] - 28);
     // gl4duRotatef(60,0,0,0);
     // gl4duRotatef(vol,0,0,1);
-    gl4duScalef(8, 20, 8);
+    gl4duScalef(8, 30, 8);
     // assimpDrawScene4();
     assimpDrawScene1();
 

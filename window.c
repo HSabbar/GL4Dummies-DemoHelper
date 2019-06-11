@@ -22,7 +22,7 @@ static GL4DHanime _animations[] = {
 
   {50000, animation_base, NULL, NULL },//base.c
 
-  {50000, animation_nature, NULL, NULL },//chorale.c
+  {40000, animation_nature, NULL, NULL },//chorale.c
 
   {32000, credits2, NULL, NULL },//credits2.c
 
@@ -42,6 +42,8 @@ int main(int argc, char ** argv) {
 			 SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN))
     return 1;
   init();
+
+  sleep(5);
   atexit(quit);
   gl4duwResizeFunc(resize);
   gl4duwKeyDownFunc(keydown);
